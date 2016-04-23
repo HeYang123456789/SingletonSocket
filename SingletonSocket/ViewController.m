@@ -46,14 +46,21 @@
     
     // 开启连接，并发送数据
     [socket socketConnectHostSuccess:^(NSData* data) {
+        
+        
         DLog(@"因为返回了数据，所以就会调用这个方法");
         DLog(@"%@",data);
+        
+        
         Byte *dataByte = (Byte*)data.bytes;
+        
         DLog(@"");
         for (int i = 0; i<data.length; i++) {
             printf("%hhu ",dataByte[i]);
         }
         DLog(@"");
+        
+        
     } failure:^(NSError* error) {
         DLog(@"失败了：%@",error);
     }];
